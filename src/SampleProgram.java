@@ -1,15 +1,28 @@
 
+class MyThread extends Thread
+{
+	
+	public void run()
+	{
+		for (int j = 1; j <= 10; j++)
+		{
+			System.out.println(j);
+			try {
+				Thread.sleep(500);
+			} catch (Exception e) {
+				System.out.println("Error");
+			}
+		}
+		
+	}
+}
 public class SampleProgram {
 
 	public static void main(String args[]) {
-		for (int j = 1; j <= 4; j++) {
-			for (int i = 1; i <= 4; i++) {
-				if (i == 1||i==4||j==1||j==4)
-					System.out.print("$ ");
-				else
-					System.out.print("  ");
-			}
-			System.out.println();
-		}
+
+	
+		MyThread t = new MyThread();
+		
+		t.start();
 	}
 }
